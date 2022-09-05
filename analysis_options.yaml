@@ -1,0 +1,6 @@
+include: package:neodart/neodart.yaml
+
+linter:
+  rules:
+    cascade_invocations: false
+    file_names: false
