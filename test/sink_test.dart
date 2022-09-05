@@ -44,7 +44,7 @@ void main() {
       expect(readEscaped(), r'\u001b[0m');
     });
 
-    test('should write the escape sequence for foreground color', () {
+    test('should write the escape sequence for 1-bit foreground color', () {
       ioSink.setForegroundColor(Ansi1BitColors.red);
       expect(readEscaped(), r'\u001b[31m');
 
@@ -52,12 +52,22 @@ void main() {
       expect(readEscaped(), r'\u001b[91m');
     });
 
-    test('should write the escape sequence for background color', () {
+    test('should write the escape sequence for 1-bit background color', () {
       ioSink.setBackgroundColor(Ansi1BitColors.red);
       expect(readEscaped(), r'\u001b[41m');
 
       ioSink.setBackgroundColor(Ansi1BitColors.red, bright: true);
       expect(readEscaped(), r'\u001b[101m');
+    });
+
+    test('should write the escape sequence for 8-bit foreground color', () {
+      ioSink.setForegroundColor8(Ansi8BitColors.darkOliveGreen1);
+      expect(readEscaped(), r'\u001b[38;5;191m');
+    });
+
+    test('should write the escape sequence for 8-bit background color', () {
+      ioSink.setBackgroundColor8(Ansi8BitColors.cadetBlue);
+      expect(readEscaped(), r'\u001b[48;5;72m');
     });
 
     test('should write the escape sequence for bold', () {

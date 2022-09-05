@@ -69,7 +69,7 @@ enum Ansi8BitColors {
   blue3,
 
   /// Represents "Blue3", `(0, 0, 215)` in RGB.
-  blue3_3,
+  blue3_2,
 
   /// Represents "Blue1", `(0, 0, 255)` in RGB.
   blue1,
@@ -81,10 +81,10 @@ enum Ansi8BitColors {
   deepSkyBlue4,
 
   /// Represents "DeepSkyBlue4", `(0, 95, 135)` in RGB.
-  deepSkyBlue4_3,
+  deepSkyBlue4_2,
 
   /// Represents "DeepSkyBlue4", `(0, 95, 175)` in RGB.
-  deepSkyBlue4_4,
+  deepSkyBlue4_3,
 
   /// Represents "DodgerBlue3", `(0, 95, 215)` in RGB.
   dodgerBlue3,
@@ -105,7 +105,7 @@ enum Ansi8BitColors {
   deepSkyBlue3,
 
   /// Represents "DeepSkyBlue3", `(0, 135, 215)` in RGB.
-  deepSkyBlue3_3,
+  deepSkyBlue3_2,
 
   /// Represents "DodgerBlue1", `(0, 135, 255)` in RGB.
   dodgerBlue1,
@@ -129,10 +129,10 @@ enum Ansi8BitColors {
   deepSkyBlue1,
 
   /// Represents "Green3", `(0, 215, 0)` in RGB.
-  green3_3,
+  green3_2,
 
   /// Represents "SpringGreen3", `(0, 215, 95)` in RGB.
-  springGreen3_3,
+  springGreen3_2,
 
   /// Represents "SpringGreen2", `(0, 215, 135)` in RGB.
   springGreen2,
@@ -150,7 +150,7 @@ enum Ansi8BitColors {
   green1,
 
   /// Represents "SpringGreen2", `(0, 255, 95)` in RGB.
-  springGreen2_3,
+  springGreen2_2,
 
   /// Represents "SpringGreen1", `(0, 255, 135)` in RGB.
   springGreen1,
@@ -174,7 +174,7 @@ enum Ansi8BitColors {
   purple4,
 
   /// Represents "Purple4", `(95, 0, 175)` in RGB.
-  purple4_3,
+  purple4_2,
 
   /// Represents "Purple3", `(95, 0, 215)` in RGB.
   purple3,
@@ -195,7 +195,7 @@ enum Ansi8BitColors {
   slateBlue3,
 
   /// Represents "SlateBlue3", `(95, 95, 215)` in RGB.
-  slateBlue3_3,
+  slateBlue3_2,
 
   /// Represents "RoyalBlue1", `(95, 95, 255)` in RGB.
   royalBlue1,
@@ -222,13 +222,13 @@ enum Ansi8BitColors {
   chartreuse3,
 
   /// Represents "DarkSeaGreen4", `(95, 175, 95)` in RGB.
-  darkSeaGreen4_3,
+  darkSeaGreen4_2,
 
   /// Represents "CadetBlue", `(95, 175, 135)` in RGB.
   cadetBlue,
 
   /// Represents "CadetBlue", `(95, 175, 175)` in RGB.
-  cadetBlue_3,
+  cadetBlue_2,
 
   /// Represents "SkyBlue3", `(95, 175, 215)` in RGB.
   skyBlue3,
@@ -237,7 +237,7 @@ enum Ansi8BitColors {
   steelBlue1,
 
   /// Represents "Chartreuse3", `(95, 215, 0)` in RGB.
-  chartreuse3_3,
+  chartreuse3_2,
 
   /// Represents "PaleGreen3", `(95, 215, 95)` in RGB.
   paleGreen3,
@@ -252,7 +252,7 @@ enum Ansi8BitColors {
   mediumTurquoise,
 
   /// Represents "SteelBlue1", `(95, 215, 255)` in RGB.
-  steelBlue1_3,
+  steelBlue1_2,
 
   /// Represents "Chartreuse2", `(95, 255, 0)` in RGB.
   chartreuse2,
@@ -264,7 +264,7 @@ enum Ansi8BitColors {
   seaGreen1,
 
   /// Represents "SeaGreen1", `(95, 255, 175)` in RGB.
-  seaGreen1_3,
+  seaGreen1_2,
 
   /// Represents "Aquamarine1", `(95, 255, 215)` in RGB.
   aquamarine1,
@@ -273,25 +273,25 @@ enum Ansi8BitColors {
   darkSlateGray2,
 
   /// Represents "DarkRed", `(135, 0, 0)` in RGB.
-  darkRed_3,
+  darkRed_2,
 
   /// Represents "DeepPink4", `(135, 0, 95)` in RGB.
-  deepPink4_3,
+  deepPink4_2,
 
   /// Represents "DarkMagenta", `(135, 0, 135)` in RGB.
   darkMagenta,
 
   /// Represents "DarkMagenta", `(135, 0, 175)` in RGB.
-  darkMagenta_3,
+  darkMagenta_2,
 
   /// Represents "DarkViolet", `(135, 0, 215)` in RGB.
   darkViolet,
 
   /// Represents "Purple", `(135, 0, 255)` in RGB.
-  purple_3,
+  purple_2,
 
   /// Represents "Orange4", `(135, 95, 0)` in RGB.
-  orange4_3,
+  orange4_2,
 
   /// Represents "LightPink4", `(135, 95, 95)` in RGB.
   lightPink4,
@@ -303,7 +303,7 @@ enum Ansi8BitColors {
   mediumPurple3,
 
   /// Represents "MediumPurple3", `(135, 95, 215)` in RGB.
-  mediumPurple3_3,
+  mediumPurple3_2,
 
   /// Represents "SlateBlue1", `(135, 95, 255)` in RGB.
   slateBlue1,
@@ -327,7 +327,7 @@ enum Ansi8BitColors {
   lightSlateBlue,
 
   /// Represents "Yellow4", `(135, 175, 0)` in RGB.
-  yellow4_3,
+  yellow4_2,
 
   /// Represents "DarkOliveGreen3", `(135, 175, 95)` in RGB.
   darkOliveGreen3,
@@ -339,19 +339,19 @@ enum Ansi8BitColors {
   lightSkyBlue3,
 
   /// Represents "LightSkyBlue3", `(135, 175, 215)` in RGB.
-  lightSkyBlue3_3,
+  lightSkyBlue3_2,
 
   /// Represents "SkyBlue2", `(135, 175, 255)` in RGB.
   skyBlue2,
 
   /// Represents "Chartreuse2", `(135, 215, 0)` in RGB.
-  chartreuse2_3,
+  chartreuse2_2,
 
   /// Represents "DarkOliveGreen3", `(135, 215, 95)` in RGB.
-  darkOliveGreen3_3,
+  darkOliveGreen3_2,
 
   /// Represents "PaleGreen3", `(135, 215, 135)` in RGB.
-  paleGreen3_3,
+  paleGreen3_2,
 
   /// Represents "DarkSeaGreen3", `(135, 215, 175)` in RGB.
   darkSeaGreen3,
@@ -369,13 +369,13 @@ enum Ansi8BitColors {
   lightGreen,
 
   /// Represents "LightGreen", `(135, 255, 135)` in RGB.
-  lightGreen_3,
+  lightGreen_2,
 
   /// Represents "PaleGreen1", `(135, 255, 175)` in RGB.
   paleGreen1,
 
   /// Represents "Aquamarine1", `(135, 255, 215)` in RGB.
-  aquamarine1_3,
+  aquamarine1_2,
 
   /// Represents "DarkSlateGray1", `(135, 255, 255)` in RGB.
   darkSlateGray1,
@@ -384,7 +384,7 @@ enum Ansi8BitColors {
   red3,
 
   /// Represents "DeepPink4", `(175, 0, 95)` in RGB.
-  deepPink4_4,
+  deepPink4_3,
 
   /// Represents "MediumVioletRed", `(175, 0, 135)` in RGB.
   mediumVioletRed,
@@ -393,10 +393,10 @@ enum Ansi8BitColors {
   magenta3,
 
   /// Represents "DarkViolet", `(175, 0, 215)` in RGB.
-  darkViolet_3,
+  darkViolet_2,
 
   /// Represents "Purple", `(175, 0, 255)` in RGB.
-  purple_4,
+  purple_3,
 
   /// Represents "DarkOrange3", `(175, 95, 0)` in RGB.
   darkOrange3,
@@ -429,7 +429,7 @@ enum Ansi8BitColors {
   grey63,
 
   /// Represents "MediumPurple2", `(175, 135, 215)` in RGB.
-  mediumPurple2_3,
+  mediumPurple2_2,
 
   /// Represents "MediumPurple1", `(175, 135, 255)` in RGB.
   mediumPurple1,
@@ -456,10 +456,10 @@ enum Ansi8BitColors {
   yellow3,
 
   /// Represents "DarkOliveGreen3", `(175, 215, 95)` in RGB.
-  darkOliveGreen3_4,
+  darkOliveGreen3_3,
 
   /// Represents "DarkSeaGreen3", `(175, 215, 135)` in RGB.
-  darkSeaGreen3_3,
+  darkSeaGreen3_2,
 
   /// Represents "DarkSeaGreen2", `(175, 215, 175)` in RGB.
   darkSeaGreen2,
@@ -477,10 +477,10 @@ enum Ansi8BitColors {
   darkOliveGreen2,
 
   /// Represents "PaleGreen1", `(175, 255, 135)` in RGB.
-  paleGreen1_3,
+  paleGreen1_2,
 
   /// Represents "DarkSeaGreen2", `(175, 255, 175)` in RGB.
-  darkSeaGreen2_3,
+  darkSeaGreen2_2,
 
   /// Represents "DarkSeaGreen1", `(175, 255, 215)` in RGB.
   darkSeaGreen1,
@@ -489,31 +489,31 @@ enum Ansi8BitColors {
   paleTurquoise1,
 
   /// Represents "Red3", `(215, 0, 0)` in RGB.
-  red3_3,
+  red3_2,
 
   /// Represents "DeepPink3", `(215, 0, 95)` in RGB.
   deepPink3,
 
   /// Represents "DeepPink3", `(215, 0, 135)` in RGB.
-  deepPink3_3,
+  deepPink3_2,
 
   /// Represents "Magenta3", `(215, 0, 175)` in RGB.
-  magenta3_3,
+  magenta3_2,
 
   /// Represents "Magenta3", `(215, 0, 215)` in RGB.
-  magenta3_4,
+  magenta3_3,
 
   /// Represents "Magenta2", `(215, 0, 255)` in RGB.
   magenta2,
 
   /// Represents "DarkOrange3", `(215, 95, 0)` in RGB.
-  darkOrange3_3,
+  darkOrange3_2,
 
   /// Represents "IndianRed", `(215, 95, 95)` in RGB.
-  indianRed_3,
+  indianRed_2,
 
   /// Represents "HotPink3", `(215, 95, 135)` in RGB.
-  hotPink3_3,
+  hotPink3_2,
 
   /// Represents "HotPink2", `(215, 95, 175)` in RGB.
   hotPink2,
@@ -528,7 +528,7 @@ enum Ansi8BitColors {
   orange3,
 
   /// Represents "LightSalmon3", `(215, 135, 95)` in RGB.
-  lightSalmon3_3,
+  lightSalmon3_2,
 
   /// Represents "LightPink3", `(215, 135, 135)` in RGB.
   lightPink3,
@@ -543,7 +543,7 @@ enum Ansi8BitColors {
   violet,
 
   /// Represents "Gold3", `(215, 175, 0)` in RGB.
-  gold3_3,
+  gold3_2,
 
   /// Represents "LightGoldenrod3", `(215, 175, 95)` in RGB.
   lightGoldenrod3,
@@ -561,7 +561,7 @@ enum Ansi8BitColors {
   plum2,
 
   /// Represents "Yellow3", `(215, 215, 0)` in RGB.
-  yellow3_3,
+  yellow3_2,
 
   /// Represents "Khaki3", `(215, 215, 95)` in RGB.
   khaki3,
@@ -585,10 +585,10 @@ enum Ansi8BitColors {
   darkOliveGreen1,
 
   /// Represents "DarkOliveGreen1", `(215, 255, 135)` in RGB.
-  darkOliveGreen1_3,
+  darkOliveGreen1_2,
 
   /// Represents "DarkSeaGreen1", `(215, 255, 175)` in RGB.
-  darkSeaGreen1_3,
+  darkSeaGreen1_2,
 
   /// Represents "Honeydew2", `(215, 255, 215)` in RGB.
   honeydew2,
@@ -606,10 +606,10 @@ enum Ansi8BitColors {
   deepPink1,
 
   /// Represents "DeepPink1", `(255, 0, 175)` in RGB.
-  deepPink1_3,
+  deepPink1_2,
 
   /// Represents "Magenta2", `(255, 0, 215)` in RGB.
-  magenta2_3,
+  magenta2_2,
 
   /// Represents "Magenta1", `(255, 0, 255)` in RGB.
   magenta1,
@@ -621,16 +621,16 @@ enum Ansi8BitColors {
   indianRed1,
 
   /// Represents "IndianRed1", `(255, 95, 135)` in RGB.
-  indianRed1_3,
+  indianRed1_2,
 
   /// Represents "HotPink", `(255, 95, 175)` in RGB.
   hotPink,
 
   /// Represents "HotPink", `(255, 95, 215)` in RGB.
-  hotPink_3,
+  hotPink_2,
 
   /// Represents "MediumOrchid1", `(255, 95, 255)` in RGB.
-  mediumOrchid1_3,
+  mediumOrchid1_2,
 
   /// Represents "DarkOrange", `(255, 135, 0)` in RGB.
   darkOrange,
@@ -672,10 +672,10 @@ enum Ansi8BitColors {
   gold1,
 
   /// Represents "LightGoldenrod2", `(255, 215, 95)` in RGB.
-  lightGoldenrod2_3,
+  lightGoldenrod2_2,
 
   /// Represents "LightGoldenrod2", `(255, 215, 135)` in RGB.
-  lightGoldenrod2_4,
+  lightGoldenrod2_3,
 
   /// Represents "NavajoWhite1", `(255, 215, 175)` in RGB.
   navajoWhite1,

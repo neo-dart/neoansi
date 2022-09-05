@@ -51,7 +51,7 @@ String toCamelCaseFromTitleCase(String name, Map<String, int> unique) {
   unique[name] = unique[name]! + 1;
   if (unique[name]! > 1) {
     // ignore: parameter_assignments
-    name += '_${unique[name]! + 1}';
+    name += '_${unique[name]!}';
   }
   return name[0].toLowerCase() + name.substring(1);
 }
