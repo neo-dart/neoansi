@@ -23,6 +23,10 @@ This library provides minimal [ANSI escape sequences][ansi] and helpers for
 working with [ANSI text terminals and terminal emulators][wiki], in which
 escape characters and embedded values are interpreted as commands.
 
+For example, for terminals with 16-bit (256) color support:
+
+![Example output](https://user-images.githubusercontent.com/168174/188341463-9944f72c-a902-434b-8dd1-f9863d113517.png)
+
 [ansi]: https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html#16-colors
 [wiki]: https://en.wikipedia.org/wiki/ANSI_escape_code
 
