@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:neoansi/neoansi.dart';
+import 'package:neocolor/neocolor.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -45,39 +48,58 @@ void main() {
     });
 
     test('should write the escape sequence for 1-bit foreground color', () {
-      ioSink.setForegroundColor(Ansi1BitColors.red);
+      ioSink.setForegroundColor1(Ansi1BitColor.red);
       expect(readEscaped(), r'\u001b[31m');
 
-      ioSink.setForegroundColor(Ansi1BitColors.red, bright: true);
+      ioSink.setForegroundColor1(Ansi1BitColor.red, bright: true);
       expect(readEscaped(), r'\u001b[91m');
     });
 
     test('should write the escape sequence for 1-bit background color', () {
-      ioSink.setBackgroundColor(Ansi1BitColors.red);
+      ioSink.setBackgroundColor1(Ansi1BitColor.red);
       expect(readEscaped(), r'\u001b[41m');
 
-      ioSink.setBackgroundColor(Ansi1BitColors.red, bright: true);
+      ioSink.setBackgroundColor1(Ansi1BitColor.red, bright: true);
       expect(readEscaped(), r'\u001b[101m');
     });
 
     test('should write the escape sequence for 8-bit foreground color', () {
-      ioSink.setForegroundColor8(Ansi8BitColors.darkOliveGreen1);
+      ioSink.setForegroundColor8(Ansi8BitColor.darkOliveGreen1);
       expect(readEscaped(), r'\u001b[38;5;191m');
     });
 
     test('should write the escape sequence for 8-bit background color', () {
-      ioSink.setBackgroundColor8(Ansi8BitColors.cadetBlue);
+      ioSink.setBackgroundColor8(Ansi8BitColor.cadetBlue);
       expect(readEscaped(), r'\u001b[48;5;72m');
     });
 
-    test('should write the escape sequence for bold', () {
-      ioSink.setBold();
-      expect(readEscaped(), r'\u001b[1m');
+    test('should write the escape sequence for 24-bit foreground color', () {
+      ioSink.setForegroundColor24(Color.fromRGB(0xAA, 0xBB, 0xCC));
+      expect(readEscaped(), r'\u001b[38;2;170;187;204m');
     });
 
-    test('should write the escape sequence for underlined', () {
+    test('should write the escape sequence for 24-bit background color', () {
+      ioSink.setBackgroundColor24(Color.fromRGB(0xAA, 0xBB, 0xCC));
+      expect(readEscaped(), r'\u001b[48;2;170;187;204m');
+    });
+
+    test('should write the escape sequence for set/clear bold', () {
+      ioSink.setBold();
+      expect(readEscaped(), r'\u001b[1m');
+
+      ioSink.clearBold();
+      expect(readEscaped(), r'\u001b[22m');
+    });
+
+    test('should write the escape sequence for set/clear underlined', () {
       ioSink.setUnderlined();
       expect(readEscaped(), r'\u001b[4m');
+
+      ioSink.setDoubleUnderlined();
+      expect(readEscaped(), r'\u001b[21m');
+
+      ioSink.clearUnderlined();
+      expect(readEscaped(), r'\u001b[24m');
     });
 
     test('should write the escape sequence for reversing colors', () {
@@ -125,6 +147,14 @@ void main() {
 
       ioSink.restoreCursor();
       expect(readEscaped(), r'\u001b[r');
+    });
+
+    test('should write the escape sequence for show/hide cursor', () {
+      ioSink.showCursor();
+      expect(readEscaped(), r'\u001b[25h');
+
+      ioSink.hideCursor();
+      expect(readEscaped(), r'\u001b[25l');
     });
 
     group('.from should support the standard sink interface', () {

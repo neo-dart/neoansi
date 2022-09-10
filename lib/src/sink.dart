@@ -3,7 +3,7 @@ part of '/neoansi.dart';
 /// An output string sink that assumes the effect of ANSI escape codes.
 ///
 /// What this means in practice is that it acts a _translation_ layer from Dart
-/// APIs (i.e. [setForegroundColor]) and adds equivalent ANSI escape sequence
+/// APIs (i.e. [setForegroundColor1]) and adds equivalent ANSI escape sequence
 /// codes to the output buffer.
 abstract class AnsiSink implements StringSink {
   /// Creates an [AnsiSink] that wraps and writes to the provided [sink].
@@ -43,28 +43,48 @@ abstract class AnsiSink implements StringSink {
   /// Resets all styling to the default.
   void resetStyles() => _writeEscape('0', 'm');
 
-  /// Sets subsequent text's foreground color.
-  void setForegroundColor(Ansi1BitColors color, {bool bright = false}) {
+  /// Sets subsequent text's foreground as a 1-bit [color].
+  void setForegroundColor1(Ansi1BitColor color, {bool bright = false}) {
     final code = bright ? color.brightForeground : color.foreground;
     _writeEscape(code, 'm');
   }
 
-  /// Sets subsequent text's foreground color.
-  void setForegroundColor8(Ansi8BitColors color) {
-    final code = color.index;
-    _writeEscape('38;5;$code', 'm');
-  }
-
-  /// Sets subequent text's background color.
-  void setBackgroundColor(Ansi1BitColors color, {bool bright = false}) {
+  /// Sets subequent text's background as a 1-bit [color].
+  void setBackgroundColor1(Ansi1BitColor color, {bool bright = false}) {
     final code = bright ? color.brightBackground : color.background;
     _writeEscape(code, 'm');
   }
 
-  /// Sets subsequent text's background color.
-  void setBackgroundColor8(Ansi8BitColors color) {
+  /// Sets subsequent text's foreground as a 8-bit [color].
+  void setForegroundColor8(Ansi8BitColor color) {
+    final code = color.index;
+    _writeEscape('38;5;$code', 'm');
+  }
+
+  /// Sets subsequent text's background as a 8-bit [color].
+  void setBackgroundColor8(Ansi8BitColor color) {
     final code = color.index;
     _writeEscape('48;5;$code', 'm');
+  }
+
+  /// Sets subsequent text's foreground as a 24-bit [color].
+  ///
+  /// **NOTE**: The 8-bit alpha channel ([Color.alpha]) is ignored.
+  void setForegroundColor24(Color color) {
+    final r = color.red;
+    final g = color.green;
+    final b = color.blue;
+    _writeEscape('38;2;$r;$g;$b', 'm');
+  }
+
+  /// Sets subsequent text's background as a 24-bit [color].
+  ///
+  /// **NOTE**: The 8-bit alpha channel ([Color.alpha]) is ignored.
+  void setBackgroundColor24(Color color) {
+    final r = color.red;
+    final g = color.green;
+    final b = color.blue;
+    _writeEscape('48;2;$r;$g;$b', 'm');
   }
 
   /// Sets text decoration style to include **bold**.
@@ -72,6 +92,15 @@ abstract class AnsiSink implements StringSink {
 
   /// Sets text decoration style to include <u>underlined</u>.
   void setUnderlined() => _writeEscape('4', 'm');
+
+  /// Sets text decoration style to include _double_ <u>underlined</u>.
+  void setDoubleUnderlined() => _writeEscape('21', 'm');
+
+  /// Clears text decoration style to exclude **bold**.
+  void clearBold() => _writeEscape('22', 'm');
+
+  /// Clears text decoration style to exclude single/double <u>underlined</u>.
+  void clearUnderlined() => _writeEscape('24', 'm');
 
   /// Reverses the foreground and background colors.
   void reverseColors() => _writeEscape('7', 'm');
@@ -121,6 +150,12 @@ abstract class AnsiSink implements StringSink {
 
   /// Restores the current cursor position from a previously saved position.
   void restoreCursor() => _writeEscape('r', '');
+
+  /// Shows the cursor.
+  void showCursor() => _writeEscape('25', 'h');
+
+  /// Hides the cursor.
+  void hideCursor() => _writeEscape('25', 'l');
 }
 
 @sealed

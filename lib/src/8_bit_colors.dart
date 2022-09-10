@@ -7,7 +7,7 @@ part of '/neoansi.dart';
 /// ```
 /// void drawText(String message, {Ansi8BitColors? color}) { /* ... */ }
 /// ```
-enum Ansi8BitColors {
+enum Ansi8BitColor {
   /// Represents "Black", `(0, 0, 0)` in RGB.
   black,
 

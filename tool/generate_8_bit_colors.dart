@@ -27,16 +27,20 @@ void main() {
     ..writeln("part of '/neoansi.dart';")
     ..writeln()
     ..writeln('/// 8-bit ANSI supported colors on most terminals.')
+    ..writeln("@Deprecated('Renamed to Ansi8BitColor')")
+    ..writeln('typedef Ansi8BitColors = Ansi8BitColor;')
+    ..writeln()
+    ..writeln('/// 8-bit ANSI supported colors on most terminals.')
     ..writeln('///')
     ..writeln(
       '/// This eunm may be used to constrain possible colors in an API, i.e.:',
     )
     ..writeln('/// ```')
     ..writeln(
-      '/// void drawText(String message, {Ansi8BitColors? color}) { /* ... */ }',
+      '/// void drawText(String message, {Ansi8BitColor? color}) { /* ... */ }',
     )
     ..writeln('/// ```')
-    ..writeln('enum Ansi8BitColors {')
+    ..writeln('enum Ansi8BitColor {')
     ..writeAll(colors.map((color) {
       return ''
           '  /// Represents "${color.name}", `(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b})` in RGB.\n'

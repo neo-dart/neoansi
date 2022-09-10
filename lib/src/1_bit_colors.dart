@@ -14,7 +14,7 @@ part of '/neoansi.dart';
 /// Where possible, members describe their colors using [xterm][]'s RGB value.
 ///
 /// [xterm]: https://en.wikipedia.org/wiki/Xterm#/media/File:Xterm_256color_chart.svg
-enum Ansi1BitColors {
+enum Ansi1BitColor {
   // As tempting as it might be, do **not** alphabetically sort the members.
   // Each .index value is used to represent an absolute value, just to be
   // memory efficeint (over allocating another field per instance).

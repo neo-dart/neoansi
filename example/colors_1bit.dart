@@ -7,70 +7,67 @@ void main() {
   // In this case, directly writes to stdout, but this could also take a buffer.
   final console = AnsiSink.from(stdout);
 
-  // Clear the console to make it easier to read.
-  console.clearScreen();
-
   // Write a table of 1-bit sample colors.
-  write1BitSamples(console);
+  _write1BitSamples(console);
 
   // Restore console styling.
   console.resetStyles();
 }
 
-void write1BitSamples(AnsiSink console) {
+void _write1BitSamples(AnsiSink console) {
   // Write fancy formatted text!
-  write1BitSample(
+  _write1BitSample(
     console,
-    Ansi1BitColors.black,
-    Ansi1BitColors.red,
-    Ansi1BitColors.green,
-    Ansi1BitColors.yellow,
+    Ansi1BitColor.black,
+    Ansi1BitColor.red,
+    Ansi1BitColor.green,
+    Ansi1BitColor.yellow,
   );
 
-  write1BitSample(
+  _write1BitSample(
     console,
-    Ansi1BitColors.blue,
-    Ansi1BitColors.magenta,
-    Ansi1BitColors.cyan,
-    Ansi1BitColors.white,
+    Ansi1BitColor.blue,
+    Ansi1BitColor.magenta,
+    Ansi1BitColor.cyan,
+    Ansi1BitColor.white,
   );
 
-  write1BitSample(
+  _write1BitSample(
     console,
-    Ansi1BitColors.black,
-    Ansi1BitColors.red,
-    Ansi1BitColors.green,
-    Ansi1BitColors.yellow,
+    Ansi1BitColor.black,
+    Ansi1BitColor.red,
+    Ansi1BitColor.green,
+    Ansi1BitColor.yellow,
     bright: true,
   );
 
-  write1BitSample(
+  _write1BitSample(
     console,
-    Ansi1BitColors.blue,
-    Ansi1BitColors.magenta,
-    Ansi1BitColors.cyan,
-    Ansi1BitColors.white,
+    Ansi1BitColor.blue,
+    Ansi1BitColor.magenta,
+    Ansi1BitColor.cyan,
+    Ansi1BitColor.white,
     bright: true,
   );
 }
 
 /// With the provided colors, sets the background color and writes some text.
-void write1BitSample(
+void _write1BitSample(
   AnsiSink console,
-  Ansi1BitColors a,
-  Ansi1BitColors b,
-  Ansi1BitColors c,
-  Ansi1BitColors d, {
+  Ansi1BitColor a,
+  Ansi1BitColor b,
+  Ansi1BitColor c,
+  Ansi1BitColor d, {
   bool bright = false,
 }) {
   console
-    ..setBackgroundColor(a, bright: bright)
+    ..setBackgroundColor1(a, bright: bright)
     ..write(' A ')
-    ..setBackgroundColor(b, bright: bright)
+    ..setBackgroundColor1(b, bright: bright)
     ..write(' B ')
-    ..setBackgroundColor(c, bright: bright)
+    ..setBackgroundColor1(c, bright: bright)
     ..write(' C ')
-    ..setBackgroundColor(d, bright: bright)
+    ..setBackgroundColor1(d, bright: bright)
     ..write(' D ')
     ..writeln();
 }

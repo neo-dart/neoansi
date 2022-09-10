@@ -7,16 +7,16 @@ import 'package:test/test.dart';
 import '../tool/src/colors.dart';
 
 void main() {
-  group('Ansi1BitColors', () {
+  group('Ansi1BitColor', () {
     (const {
-      Ansi1BitColors.black: [30, 40, 90, 100],
-      Ansi1BitColors.red: [31, 41, 91, 101],
-      Ansi1BitColors.green: [32, 42, 92, 102],
-      Ansi1BitColors.yellow: [33, 43, 93, 103],
-      Ansi1BitColors.blue: [34, 44, 94, 104],
-      Ansi1BitColors.magenta: [35, 45, 95, 105],
-      Ansi1BitColors.cyan: [36, 46, 96, 106],
-      Ansi1BitColors.white: [37, 47, 97, 107],
+      Ansi1BitColor.black: [30, 40, 90, 100],
+      Ansi1BitColor.red: [31, 41, 91, 101],
+      Ansi1BitColor.green: [32, 42, 92, 102],
+      Ansi1BitColor.yellow: [33, 43, 93, 103],
+      Ansi1BitColor.blue: [34, 44, 94, 104],
+      Ansi1BitColor.magenta: [35, 45, 95, 105],
+      Ansi1BitColor.cyan: [36, 46, 96, 106],
+      Ansi1BitColor.white: [37, 47, 97, 107],
     }).forEach((color, values) {
       final expectedForeground = values[0];
       final expectedBackground = values[1];
@@ -32,7 +32,7 @@ void main() {
     });
   });
 
-  group('Ansi8BitColors', () {
+  group('Ansi8BitColor', () {
     late final List<ColorDefinition> colors;
 
     setUpAll(() {
@@ -41,7 +41,7 @@ void main() {
       );
     });
 
-    for (final value in Ansi8BitColors.values) {
+    for (final value in Ansi8BitColor.values) {
       test('.$value', () {
         expect(
           value.name.toLowerCase(),
