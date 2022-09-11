@@ -1,6 +1,6 @@
 name: neoansi
 description: ANSI escape sequences and styling micro-library written in fluent/modern Dart.
-version: 0.3.0
+version: 0.3.1
 homepage: https://github.com/neo-dart/neoansi
 
 environment:
