@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.2
+
+- Export `Color` (from `package:neocolor`).
+
 ## 0.3.1
 
 - Added `AnsiReader`, an ANSI escape parser, i.e. for a terminal emulator.

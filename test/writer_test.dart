@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:neoansi/neoansi.dart';
-import 'package:neocolor/neocolor.dart';
 import 'package:test/test.dart';
 
 void main() {
