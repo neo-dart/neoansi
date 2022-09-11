@@ -18,7 +18,7 @@ void main() {
 
   const command = ''
       'dart tool/generate_8_bit_colors.dart > '
-      'lib/src/8_bit_colors.dart';
+      'lib/src/_8_bit_colors.dart';
 
   final unique = <String, int>{};
 

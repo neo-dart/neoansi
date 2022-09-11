@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.3.1
+
+- Added `AnsiReader`, an ANSI escape parser, i.e. for a terminal emulator.
+- Added `AnsiListener`, a base interface for `AnsiReader` and `AnsiWriter`.
+- Renamed `AnsiSink` to `AnsiWriter` (`AnsiSink` is deprecated).
+
 ## 0.3.0
 
 - Added a dependency on [`package:neocolor`](https://pub.dev/packages/neocolor).

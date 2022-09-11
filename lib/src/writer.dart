@@ -2,15 +2,21 @@ part of '/neoansi.dart';
 
 /// An output string sink that assumes the effect of ANSI escape codes.
 ///
+/// **Deprecated**: see [AnsiWriter].
+@Deprecated('Renamed AnsiWriter')
+typedef AnsiSink = AnsiWriter;
+
+/// An output string sink that assumes the effect of ANSI escape codes.
+///
 /// What this means in practice is that it acts a _translation_ layer from Dart
 /// APIs (i.e. [setForegroundColor1]) and adds equivalent ANSI escape sequence
 /// codes to the output buffer.
-abstract class AnsiSink implements StringSink {
-  /// Creates an [AnsiSink] that wraps and writes to the provided [sink].
-  const factory AnsiSink.from(StringSink sink) = _AnsiStringSink;
+abstract class AnsiWriter implements AnsiListener, StringSink {
+  /// Creates an [AnsiWriter] that wraps and writes to the provided [sink].
+  const factory AnsiWriter.from(StringSink sink) = _AnsiStringSink;
 
   // ignore: public_member_api_docs
-  const AnsiSink();
+  const AnsiWriter();
 
   /// Writes an ANSI escape sequence of [object] with the provided [suffix].
   ///
@@ -22,54 +28,52 @@ abstract class AnsiSink implements StringSink {
     write('$ansiEscapePrefix$object$suffix');
   }
 
-  /// Clears the entire output screen.
+  @override
   void clearScreen() => _writeEscape('2', 'J');
 
-  /// Clears the entire output screen _before_ the cursor location.
+  @override
   void clearScreenBefore() => _writeEscape('0', 'J');
 
-  /// Clears the entire output screen _after_ the cursor location.
+  @override
   void clearScreenAfter() => _writeEscape('1', 'J');
 
-  /// Clears the current cline.
+  @override
   void clearLine() => _writeEscape('2', 'K');
 
-  /// Clears the current line _before_ the cursor location.
+  @override
   void clearLineBefore() => _writeEscape('0', 'K');
 
-  /// Clears the current line _after_ the cursor location.
+  @override
   void clearLineAfter() => _writeEscape('1', 'K');
 
-  /// Resets all styling to the default.
+  @override
   void resetStyles() => _writeEscape('0', 'm');
 
-  /// Sets subsequent text's foreground as a 1-bit [color].
+  @override
   void setForegroundColor1(Ansi1BitColor color, {bool bright = false}) {
     final code = bright ? color.brightForeground : color.foreground;
     _writeEscape(code, 'm');
   }
 
-  /// Sets subequent text's background as a 1-bit [color].
+  @override
   void setBackgroundColor1(Ansi1BitColor color, {bool bright = false}) {
     final code = bright ? color.brightBackground : color.background;
     _writeEscape(code, 'm');
   }
 
-  /// Sets subsequent text's foreground as a 8-bit [color].
+  @override
   void setForegroundColor8(Ansi8BitColor color) {
     final code = color.index;
     _writeEscape('38;5;$code', 'm');
   }
 
-  /// Sets subsequent text's background as a 8-bit [color].
+  @override
   void setBackgroundColor8(Ansi8BitColor color) {
     final code = color.index;
     _writeEscape('48;5;$code', 'm');
   }
 
-  /// Sets subsequent text's foreground as a 24-bit [color].
-  ///
-  /// **NOTE**: The 8-bit alpha channel ([Color.alpha]) is ignored.
+  @override
   void setForegroundColor24(Color color) {
     final r = color.red;
     final g = color.green;
@@ -77,9 +81,7 @@ abstract class AnsiSink implements StringSink {
     _writeEscape('38;2;$r;$g;$b', 'm');
   }
 
-  /// Sets subsequent text's background as a 24-bit [color].
-  ///
-  /// **NOTE**: The 8-bit alpha channel ([Color.alpha]) is ignored.
+  @override
   void setBackgroundColor24(Color color) {
     final r = color.red;
     final g = color.green;
@@ -87,79 +89,79 @@ abstract class AnsiSink implements StringSink {
     _writeEscape('48;2;$r;$g;$b', 'm');
   }
 
-  /// Sets text decoration style to include **bold**.
+  @override
   void setBold() => _writeEscape('1', 'm');
 
-  /// Sets text decoration style to include <u>underlined</u>.
+  @override
   void setUnderlined() => _writeEscape('4', 'm');
 
-  /// Sets text decoration style to include _double_ <u>underlined</u>.
+  @override
   void setDoubleUnderlined() => _writeEscape('21', 'm');
 
-  /// Clears text decoration style to exclude **bold**.
+  @override
   void clearBold() => _writeEscape('22', 'm');
 
-  /// Clears text decoration style to exclude single/double <u>underlined</u>.
+  @override
   void clearUnderlined() => _writeEscape('24', 'm');
 
-  /// Reverses the foreground and background colors.
+  @override
   void reverseColors() => _writeEscape('7', 'm');
 
-  /// Moves the cursor up [rows].
+  @override
   void moveCursorUp([int rows = 1]) {
     _writeEscape(RangeError.checkNotNegative(rows), 'A');
   }
 
-  /// Moves the cursor down [rows].
+  @override
   void moveCursorDown([int rows = 1]) {
     _writeEscape(RangeError.checkNotNegative(rows), 'B');
   }
 
-  /// Moves the cursor right [columns].
+  @override
   void moveCursorRight([int columns = 1]) {
     _writeEscape(RangeError.checkNotNegative(columns), 'C');
   }
 
-  /// Moves the cursor left [columns].
+  @override
   void moveCursorLeft([int columns = 1]) {
     _writeEscape(RangeError.checkNotNegative(columns), 'D');
   }
 
-  /// Moves the cursor to the beginning of the next [lines].
+  @override
   void moveCursorNextLine([int lines = 1]) {
     _writeEscape(RangeError.checkNotNegative(lines), 'E');
   }
 
-  /// Moves the cursor to the beginning of the previous [lines].
+  @override
   void moveCursorPreviousLine([int lines = 1]) {
     _writeEscape(RangeError.checkNotNegative(lines), 'F');
   }
 
-  /// Moves the cursor to [column].
+  @override
   void setCursorX(int column) {
     _writeEscape(RangeError.checkNotNegative(column), 'G');
   }
 
-  /// Moves the cursor to [row].
+  @override
   void setCursorY(int row) {
     _writeEscape(RangeError.checkNotNegative(row), 'H');
   }
 
-  /// Saves the current cursor position.
+  @override
   void saveCursor() => _writeEscape('s', '');
 
-  /// Restores the current cursor position from a previously saved position.
+  @override
   void restoreCursor() => _writeEscape('r', '');
 
-  /// Shows the cursor.
+  @override
   void showCursor() => _writeEscape('25', 'h');
 
-  /// Hides the cursor.
+  @override
   void hideCursor() => _writeEscape('25', 'l');
 }
 
 @sealed
-class _AnsiStringSink extends AnsiSink {
+class _AnsiStringSink extends AnsiWriter {
   final StringSink _sink;
 
   const _AnsiStringSink(this._sink);
