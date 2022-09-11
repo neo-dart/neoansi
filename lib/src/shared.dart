@@ -19,6 +19,9 @@ part of '/neoansi.dart';
 /// }
 /// ```
 abstract class AnsiListener {
+  // It's not valuable to test that these blank methods are called.
+  // coverage:ignore-start
+
   // ignore: public_member_api_docs
   const AnsiListener();
 
@@ -121,4 +124,6 @@ abstract class AnsiListener {
 
   /// Hides the cursor.
   void hideCursor() {}
+
+  // coverage:ignore-end
 }
