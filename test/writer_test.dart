@@ -5,9 +5,9 @@ import 'package:neocolor/neocolor.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('AnsiSink', () {
+  group('AnsiWriter', () {
     late StringBuffer buffer;
-    late AnsiSink ioSink;
+    late AnsiWriter ioSink;
 
     String readEscaped() {
       final result = buffer.toString().replaceAll('\u001b', r'\u001b');
@@ -17,7 +17,7 @@ void main() {
 
     setUp(() {
       buffer = StringBuffer();
-      ioSink = AnsiSink.from(buffer);
+      ioSink = AnsiWriter.from(buffer);
     });
 
     test('should write the escape sequence for clearing the screen', () {

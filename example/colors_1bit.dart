@@ -5,7 +5,7 @@ import 'package:neoansi/neoansi.dart';
 /// Draws a 4x4 table showing all 16 background color options.
 void main() {
   // In this case, directly writes to stdout, but this could also take a buffer.
-  final console = AnsiSink.from(stdout);
+  final console = AnsiWriter.from(stdout);
 
   // Write a table of 1-bit sample colors.
   _write1BitSamples(console);
@@ -14,7 +14,7 @@ void main() {
   console.resetStyles();
 }
 
-void _write1BitSamples(AnsiSink console) {
+void _write1BitSamples(AnsiWriter console) {
   // Write fancy formatted text!
   _write1BitSample(
     console,
@@ -53,7 +53,7 @@ void _write1BitSamples(AnsiSink console) {
 
 /// With the provided colors, sets the background color and writes some text.
 void _write1BitSample(
-  AnsiSink console,
+  AnsiWriter console,
   Ansi1BitColor a,
   Ansi1BitColor b,
   Ansi1BitColor c,

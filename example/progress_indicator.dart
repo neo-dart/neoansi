@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:neoansi/neoansi.dart';
 
 void main() {
-  final console = AnsiSink.from(stdout)..writeln('Loading...');
+  final console = AnsiWriter.from(stdout)..writeln('Loading...');
 
   for (var i = 0; i < 100; i++) {
     sleep(const Duration(milliseconds: 10));

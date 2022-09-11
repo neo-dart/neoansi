@@ -1,0 +1,22 @@
+00:00 [32m+0[0m: [1m[90mloading test/reader_test.dart[0m[0m                                                                                                                                                                00:00 [32m+0[0m: AnsiReader should capture clearScreen[0m                                                                                                                                                        00:00 [32m+0[0m: AnsiReader should capture clearScreen[0m                                                                                                                                                        
+[, [2, J]
+[, [0, J]
+[, [1, J]
+00:00 [32m+0[0m[31m -1[0m: AnsiReader should capture clearScreen [1m[31m[E][0m[0m                                                                                                                                                 
+  Expected: empty
+    Actual: [
+              [Symbol:Symbol("write"), ''],
+              [Symbol:Symbol("write"), ''],
+              [Symbol:Symbol("write"), ''],
+              [Symbol:Symbol("write"), '']
+            ]
+  
+  package:test_api            expect
+  test/reader_test.dart 49:7  main.<fn>.<fn>
+  
+
+[1m[36mTo run this test again:[0m /opt/homebrew/Caskroom/flutter/3.0.1/flutter/bin/cache/dart-sdk/bin/dart test test/reader_test.dart -p vm --plain-name 'AnsiReader should capture clearScreen'
+00:00 [32m+0[0m[31m -1[0m: [31mSome tests failed.[0m                                                                                                                                                                        
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
