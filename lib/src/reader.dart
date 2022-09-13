@@ -104,6 +104,8 @@ class _AnsiReader implements AnsiReader {
         break;
       case 'm':
         switch (value) {
+          case '0':
+            return _listener.resetStyles();
           case '1':
             return _listener.setBold();
           case '4':

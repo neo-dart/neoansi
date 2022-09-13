@@ -45,6 +45,14 @@ void main() {
       ]);
     });
 
+    test('should capture resetStyles', () {
+      writer.resetStyles();
+
+      expect(capture(), [
+        [#resetStyles],
+      ]);
+    });
+
     test('should capture clearScreen', () {
       writer
         ..clearScreen()

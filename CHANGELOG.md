@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.2+1
+
+- Bug fix: `AnsiReader` captures and invokes `<AnsiListener>.resetStyes()`.
+
 ## 0.3.2
 
 - Export `Color` (from `package:neocolor`).
