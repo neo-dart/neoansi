@@ -75,9 +75,9 @@ class _AnsiReader implements AnsiReader {
       case 'J':
         switch (value) {
           case '0':
-            return _listener.clearScreenBefore();
-          case '1':
             return _listener.clearScreenAfter();
+          case '1':
+            return _listener.clearScreenBefore();
           case '2':
             return _listener.clearScreen();
         }
@@ -85,9 +85,9 @@ class _AnsiReader implements AnsiReader {
       case 'K':
         switch (value) {
           case '0':
-            return _listener.clearLineBefore();
-          case '1':
             return _listener.clearLineAfter();
+          case '1':
+            return _listener.clearLineBefore();
           case '2':
             return _listener.clearLine();
         }
