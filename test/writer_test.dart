@@ -24,10 +24,10 @@ void main() {
       expect(readEscaped(), r'\u001b[2J');
 
       ioSink.clearScreenBefore();
-      expect(readEscaped(), r'\u001b[0J');
+      expect(readEscaped(), r'\u001b[1J');
 
       ioSink.clearScreenAfter();
-      expect(readEscaped(), r'\u001b[1J');
+      expect(readEscaped(), r'\u001b[0J');
     });
 
     test('should write the escape sequence for clearing the line', () {
@@ -35,10 +35,10 @@ void main() {
       expect(readEscaped(), r'\u001b[2K');
 
       ioSink.clearLineBefore();
-      expect(readEscaped(), r'\u001b[0K');
+      expect(readEscaped(), r'\u001b[1K');
 
       ioSink.clearLineAfter();
-      expect(readEscaped(), r'\u001b[1K');
+      expect(readEscaped(), r'\u001b[0K');
     });
 
     test('should write the escape sequence for resetting styles', () {

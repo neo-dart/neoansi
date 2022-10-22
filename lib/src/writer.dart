@@ -32,19 +32,19 @@ abstract class AnsiWriter implements AnsiListener, StringSink {
   void clearScreen() => _writeEscape('2', 'J');
 
   @override
-  void clearScreenBefore() => _writeEscape('0', 'J');
+  void clearScreenAfter() => _writeEscape('0', 'J');
 
   @override
-  void clearScreenAfter() => _writeEscape('1', 'J');
+  void clearScreenBefore() => _writeEscape('1', 'J');
 
   @override
   void clearLine() => _writeEscape('2', 'K');
 
   @override
-  void clearLineBefore() => _writeEscape('0', 'K');
+  void clearLineAfter() => _writeEscape('0', 'K');
 
   @override
-  void clearLineAfter() => _writeEscape('1', 'K');
+  void clearLineBefore() => _writeEscape('1', 'K');
 
   @override
   void resetStyles() => _writeEscape('0', 'm');
